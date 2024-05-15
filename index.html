@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        form {
+            width: fit-content;
+            margin: 50px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            label {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+
+
+                input {
+                    padding: 4px;
+                    border: 1px solid #c4c4c4;
+                    border-radius: 4px;
+                }
+
+                input::placeholder {
+                    color: #c4c4c4;
+                }
+            }
+
+            .req {
+                span {
+                    color: blue;
+                }
+
+                input {
+                    border-color: blue;
+                }
+            }
+
+            .error {
+                position: relative;
+
+                span {
+                    color: red;
+                }
+
+                input {
+                    border-color: red;
+                }
+            }
+
+            .error::after {
+                content: "";
+                display: block;
+                width: 20px;
+                height: 20px;
+                background-image: url("./error.svg");
+                background-repeat: no-repeat;
+                background-size: contain;
+                position: absolute;
+                right: -25px;
+                top: 50%;
+            }
+
+            #preview {
+                display: none;
+                width: 50px;
+                height: 20px;
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <form name="signin">
+
+        <label for="name" class="req">
+            <span>name</span>
+            <input type="text" id="name" placeholder="name" name="name">
+        </label>
+        <label for="surname">
+            <span>surname</span>
+            <input type="text" id="surname" placeholder="surname" name="surname">
+        </label>
+        <label for="age" class="req">
+            <span>age</span>
+            <input type="text" id="age" placeholder="age" name="age">
+        </label>
+        <label for="file">
+            <span>File</span>
+            <input type="file" id="file" name="file">
+        </label>
+        <button>send</button>
+    </form>
+
+    <div class="photo">
+        <center>
+
+            <img id="preview" src="" alt="">
+        </center>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
